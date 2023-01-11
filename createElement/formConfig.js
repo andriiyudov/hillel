@@ -1,4 +1,4 @@
-const formConfig = [
+const FORM_CONFIG = [
     {
         tagName: 'input',
         attributes: {

@@ -31,7 +31,7 @@ const main = createElement(
 
 const form = createElement('form', null, null, '', main);
 
-for (let value of formConfig) {
+for (let value of FORM_CONFIG) {
     const currentElement = createElement(value.tagName, value.attributes, value.handlers, value.content, form);
     if (value.tagName === 'select' && value.options.length > 0) {
         for (let option of value.options) {
