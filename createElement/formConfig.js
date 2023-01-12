@@ -1,3 +1,5 @@
+'use strict'
+
 const FORM_CONFIG = [
     {
         tagName: 'input',

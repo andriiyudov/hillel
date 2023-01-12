@@ -1,3 +1,5 @@
+'use strict'
+
 const parent = document.body;
 
 const handlerClick = () => {
