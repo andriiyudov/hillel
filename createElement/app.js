@@ -15,19 +15,6 @@ const main = createElement(
     parent
 );
 
-/*
-<form>
-    <input type="text" name="login" placeholder="Enter login..." /> +
-    <input type="password" name="pass" placeholder="qwertyuio" /> +
-    <select name="role"> +
-      <option value="admin">Admin</option> +
-      <option value="user">User</option> +
-    </select>
-    <input type="button" value="Login" />
-  </form>
-*/
-
-
 
 const form = createElement('form', null, null, '', main);
 
