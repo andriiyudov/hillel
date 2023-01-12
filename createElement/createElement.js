@@ -19,7 +19,7 @@ const createElement = (tagName, attributes, events, content, parentElem) => {
         }
     }
 
-    newElem.textContent = content;
+    newElem.textContent = content || '';
     parentElem.appendChild(newElem);
 
     return newElem;
