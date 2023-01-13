@@ -6,12 +6,23 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div>
+        <h2>Filter</h2>
+        <p>
+            <input type="text" placeholder="Write category name" class="category-filter-input">
+            <button class="category-filter-find-btn">Find</button>
+            <button class="category-filter-clear-btn">Clear</button>
+        </p>
+    </div>
     <div class="container">
         <div class="category-item categories"></div>
         <div class="category-item products"></div>
         <div class="category-item details"></div>
     </div>
 
+    <script src="utils.js"></script>
+    <script src="table.js"></script>
+    <script src="filter.js"></script>
     <script src="data.js"></script>
     <script src="app.js"></script>
 </body>
