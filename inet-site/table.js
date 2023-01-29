@@ -20,8 +20,8 @@ const showProducts = ({target}) => {
     clearElements(['products', 'details']);
 
     const productsElem = document.querySelector('.products');
-    const categoryId = target.getAttribute('data-category-id');
-    const products = findProducts(DATA, +categoryId);
+    const categoryId = +target.getAttribute('data-category-id');
+    const products = DATA_MAP.get(categoryId).products;
 
     products.forEach(({name, id}) => {
         const productElem = document.createElement('div');
@@ -43,7 +43,7 @@ const showDetails = ({target}) => {
     const productId = target.getAttribute('data-product-id');
 
     const makeOrderButtonElem = document.createElement('button');
-    const product = findProducts(DATA, +categoryId, productId);
+    const product = PRODUCTS_MAP.get(productId);
 
     makeOrderButtonElem.textContent = `Order product: ${product.name}`;
     makeOrderButtonElem.addEventListener('click', () => {

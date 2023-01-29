@@ -75,3 +75,19 @@ const DATA = [
         products: []
     }
 ];
+
+const dataMap = new Map();
+const productsMap = new Map();
+
+DATA.forEach(dataItem => {
+    dataMap.set(dataItem.id, dataItem);
+
+    if (dataItem.products.length) {
+        dataItem.products.forEach(product => {
+            productsMap.set(product.id, product);
+        })
+    }
+})
+
+const DATA_MAP = dataMap;
+const PRODUCTS_MAP = productsMap;
