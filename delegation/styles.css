@@ -1,0 +1,40 @@
+.tic-tac-toe {
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+}
+
+.tic-tac-toe__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    width: 100px;
+    height: 100px;
+    outline: 1px solid;
+}
+
+.tic-tac-toe__line {
+    position: absolute;
+    outline: 1px solid;
+    color: red;
+}
+
+.tic-tac-toe__line_horizon {
+    top: 50%;
+    width: 100%;
+}
+
+.tic-tac-toe__line_vertical {
+    left: 50%;
+    height: 100%;
+}
+
+.tic-tac-toe__circle {
+    width: 95%;
+    height: 95%;
+    border: 1px solid;
+    border-radius: 50%;
+    color: green;
+}
