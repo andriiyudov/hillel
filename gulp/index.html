@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="components/displayErrors.scss">
+    <link rel="stylesheet" href="components/displayFormInfo.scss">
+</head>
+<body>
+    <form>
+        <input type="text" name="name" placeholder="Name">
+        <input type="text" name="age" placeholder="Age">
+        <input type="text" name="card" placeholder="Card">
+        <input type="text" name="email" placeholder="Email">
+        <button class="save-btn">Save</button>
+    </form>
+    <ul class="errors"></ul>
+    <div class="info"></div>
+
+    <script src="./constants.js"></script>
+    <script src="./utils/getFormValues.js"></script>
+    <script src="./utils/isFormValid.js"></script>
+    <script src="./components/displayErrors.js"></script>
+    <script src="./components/displayFormInfo.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
