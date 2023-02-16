@@ -1,10 +1,22 @@
-const displayFormInfo = ({name, age, card, email}) => {
-    const infoElem = document.querySelector('.info');
-
-    infoElem.innerHTML = `
-        <div class="info__field">Name: ${name}</div>
-        <div class="info__field">Age: ${age}</div>
-        <div class="info__field">Card: ${card}</div>
-        <div class="info__field">Email: ${email}</div>
-    `;
+const FORM_FIELDS_LABELS = {
+    name: 'Name',
+    age: 'Age',
+    card: 'Card',
+    email: 'Email',
 };
+
+const displayFormInfo = formInfo => {
+    const infoElem = document.querySelector('.info');
+    infoElem.innerHTML = '';
+
+    Object.entries(formInfo).forEach(([key, value]) => {
+        infoElem.innerHTML += createField(key, value);
+    });
+};
+
+const createField = (key, value) => {
+    const divElem = document.createElement('div');
+
+    divElem.className = 'info__field';
+    divElem.textContent = `${FORM_FIELDS_LABELS[key]}: ${value}`;
+}
