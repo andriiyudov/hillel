@@ -11,12 +11,13 @@ In the project directory, you can run:
 ### `npm run setup`
 
 Install all dependencies.\
-Run this command before first run and on any dependencies changes.\
+Run this command before first app run and on any dependencies changes.\
 
 ### `npm run build`
 
 Builds the app to the `build` folder.\
 The build is minified and the filenames include the hashes.\
+Run this before first app run and any changes in files
 
 ### `npm run watch`
 
