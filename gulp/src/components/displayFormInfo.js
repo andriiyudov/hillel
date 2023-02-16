@@ -19,4 +19,4 @@ const createField = (key, value) => {
 
     divElem.className = 'info__field';
     divElem.textContent = `${FORM_FIELDS_LABELS[key]}: ${value}`;
-}
+};

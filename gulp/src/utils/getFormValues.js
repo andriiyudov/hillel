@@ -7,4 +7,4 @@ const getFormValues = () => {
     } = document.forms[0];
 
     return {name, age, card, email};
-}
+};
