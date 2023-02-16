@@ -4,7 +4,11 @@
   "description": "",
   "main": "src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "setup": "npm install",
+    "build": "gulp",
+    "watch": "gulp watch",
+    "lint": "eslint \"./src/**/*{js,ts,tsx}\"",
+    "lint:fix": "eslint \"./src/**/*{js,ts,tsx}\" --fix"
   },
   "keywords": [],
   "author": "",

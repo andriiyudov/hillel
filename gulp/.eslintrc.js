@@ -23,10 +23,9 @@ module.exports = {
             "error", "as-needed"
         ],
         "object-shorthand": ["error", "always"],
-        "object-curly-spacing": ["error", "always", {
-            "arraysInObjects": false,
-            "objectsInObjects": false
-        }],
+        "object-curly-spacing": ["error", "never"],
         "eol-last": ["error", "always"],
+        "no-undef": 0,
+        "no-unused-vars": 0,
     }
 }

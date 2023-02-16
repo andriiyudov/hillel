@@ -16,6 +16,7 @@ const SCSS_FILES_PATH = SRC_FOLDER + '/**/*.scss';
 const gulpJSCompilation = async () => {
     gulp.src(JS_FILES_PATH)
         .pipe(babel())
+        .pipe(uglify())
         .pipe(concat('result.js'))
         .pipe(gulp.dest(BUILD_FOLDER))
 };

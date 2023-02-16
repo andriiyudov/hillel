@@ -3,8 +3,9 @@ const displayErrors = errors => {
     errorsElem.innerHTML = '';
 
     errors.forEach(error => {
-        errorsElem.innerHTML += `
-            <li>${error}</li>
-        `;
+        const liElem = document.createElement('li');
+        liElem.textContent = error;
+
+        errorsElem.innerHTML += liElem;
     });
-}
+};
