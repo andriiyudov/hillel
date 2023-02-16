@@ -7,4 +7,4 @@ const displayFormInfo = ({name, age, card, email}) => {
         <div class="info__field">Card: ${card}</div>
         <div class="info__field">Email: ${email}</div>
     `;
-}
+};
