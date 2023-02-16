@@ -3,7 +3,7 @@ const sass = require('sass');
 const gulpSass = require('gulp-sass');
 const uglify = require('gulp-uglify');
 const concat = require('gulp-concat');
-const babel = require('gulp-babel-minify');
+const babel = require('gulp-babel');
 
 const scssCompiler = gulpSass(sass);
 

@@ -15,7 +15,6 @@
     "eslint": "8.15.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
-    "gulp-babel-minify": "^0.5.2",
     "gulp-cli": "^2.3.0",
     "gulp-concat": "^2.6.1",
     "gulp-sass": "^5.1.0",
