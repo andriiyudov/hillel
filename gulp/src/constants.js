@@ -1,4 +1,4 @@
-const FORM_VALIDATION = {
+export const FORM_VALIDATION = {
     name: {
         reqExp: /^\w+$/,
         errorMessage: 'Name is not valid',

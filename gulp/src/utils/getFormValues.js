@@ -1,4 +1,4 @@
-const getFormValues = () => {
+export const getFormValues = () => {
     const {
         name: {value: name},
         age: {value: age},

@@ -1,4 +1,4 @@
-const displayErrors = errors => {
+export const displayErrors = errors => {
     const errorsElem = document.querySelector('.errors');
     errorsElem.innerHTML = '';
 
@@ -6,6 +6,6 @@ const displayErrors = errors => {
         const liElem = document.createElement('li');
         liElem.textContent = error;
 
-        errorsElem.innerHTML += liElem;
+        errorsElem.appendChild(liElem);
     });
 };

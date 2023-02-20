@@ -1,4 +1,6 @@
-const isFormValid = formValues => {
+import {FORM_VALIDATION} from '../constants.js';
+
+export const isFormValid = formValues => {
     const errors = [];
     let isValid = true;
 

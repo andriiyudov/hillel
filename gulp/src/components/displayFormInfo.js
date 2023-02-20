@@ -5,12 +5,12 @@ const FORM_FIELDS_LABELS = {
     email: 'Email',
 };
 
-const displayFormInfo = formInfo => {
+export const displayFormInfo = formInfo => {
     const infoElem = document.querySelector('.info');
     infoElem.innerHTML = '';
 
     Object.entries(formInfo).forEach(([key, value]) => {
-        infoElem.innerHTML += createField(key, value);
+        infoElem.appendChild(createField(key, value));
     });
 };
 
@@ -19,4 +19,6 @@ const createField = (key, value) => {
 
     divElem.className = 'info__field';
     divElem.textContent = `${FORM_FIELDS_LABELS[key]}: ${value}`;
+
+    return divElem;
 };
