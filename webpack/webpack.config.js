@@ -2,6 +2,8 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
+const port = process.env.PORT || 3000;
+
 module.exports = {
     mode: 'development', // 'development' or 'production' - then no 'minify'
     entry: './src/app.js',
@@ -15,7 +17,7 @@ module.exports = {
             directory: path.join(__dirname, 'dist')
         },
         compress: true,
-        port: 3001,
+        port,
     },
     module: {
         rules: [
