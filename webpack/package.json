@@ -5,8 +5,8 @@
   "main": "src/app.js",
   "scripts": {
     "setup": "npm install",
-    "build": "gulp",
-    "watch": "gulp watch",
+    "build:dev": "webpack --config webpack.config.js",
+    "start": "webpack serve --config webpack.config.js",
     "lint": "eslint \"./src/**/*{js,ts,tsx}\"",
     "lint:fix": "eslint \"./src/**/*{js,ts,tsx}\" --fix"
   },
