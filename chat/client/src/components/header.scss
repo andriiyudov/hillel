@@ -1,0 +1,11 @@
+.header {
+    background-image: url(https://picsum.photos/320/200?random=1&blur=2);
+
+    .header__title {
+        padding: 22px;
+        margin: 0;
+        color: #fff;
+        text-shadow: 2px 2px #000;
+        letter-spacing: 1px;
+    }
+}
