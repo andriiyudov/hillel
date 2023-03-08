@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000;
 
 module.exports = {
     mode: 'development', // 'development' or 'production' - then no 'minify'
-    entry: './src/app.js',
+    entry: './index.js',
     devtool: 'source-map',
     output: {
         filename: 'main.js',
@@ -32,7 +32,6 @@ module.exports = {
                     }
                 }
             }
-
         ]
     },
     plugins: [

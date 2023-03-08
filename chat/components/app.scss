@@ -1,12 +1,13 @@
-@import "/src/colors";
+@import './colors';
 
 .chat-container {
     display: flex;
     justify-content: center;
+    margin-top: 50px;
 
     .chat {
         width: 336px;
-        background-color: $gray-light;
         box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+        background: $gray-light;
     }
 }

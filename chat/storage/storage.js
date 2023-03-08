@@ -5,10 +5,4 @@ export const Storage = {
     set(key, value) {
         localStorage.setItem(key, JSON.stringify(value));
     },
-    removeItems(keys) {
-        if (Array.isArray(keys)) {
-            keys.forEach(key => localStorage.removeItem(key));
-        }
-        localStorage.removeItem(keys);
-    },
 };

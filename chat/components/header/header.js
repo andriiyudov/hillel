@@ -1,7 +1,7 @@
 import {createElement} from '../utils/createElement';
 import './header.scss';
 
-export const header = () => {
+export const createHeader = () => {
     const headerElem = document.createElement('header');
     headerElem.className = 'header';
 
