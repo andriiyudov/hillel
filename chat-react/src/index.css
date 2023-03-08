@@ -1,0 +1,18 @@
+:root {
+  --gray-light: #dde1e2;
+  --gray-dark: #d3d7d8;
+  --blue: #2589cc;
+}
+
+body {
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  font-family: 'Raleway', sans-serif;
+}

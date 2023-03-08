@@ -1,0 +1,53 @@
+.message {
+    display: flex;
+    padding: 11px;
+}
+
+.message_second {
+    background-color: var(--gray-dark);
+}
+
+.message__avatar {
+    width: 79px;
+    height: 79px;
+    flex-shrink: 0;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.message__image {
+    width: 100%;
+}
+
+.message__bubble {
+    position: relative;
+    margin: 0 10px 0 11px;
+    padding: 7px 6px 8px 8px;
+    border-radius: 8px;
+    background-color: #fff;
+    width: 100%;
+    font-size: 14px;
+    word-spacing: -1px;
+}
+
+.message_second .message__bubble {
+    order: -1;
+}
+
+.message__remove-button {
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    display: none;
+}
+
+.message__bubble:hover .message__remove-button {
+    display: block;
+}
+
+.message__remove-button > img {
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+}
