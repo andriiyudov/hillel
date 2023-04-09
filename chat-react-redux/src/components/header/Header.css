@@ -1,0 +1,23 @@
+.header {
+    background-image: url(https://picsum.photos/320/200?random=1&blur=2);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    position: sticky;
+    top: 0;
+}
+
+.header__title {
+    display: flex;
+    align-items: center;
+    padding: 22px;
+    margin: 0;
+    color: #fff;
+    text-shadow: 2px 2px #000;
+    letter-spacing: 1px;
+}
+
+.header__back-button {
+    margin-right: 8px;
+    font-size: 20px;
+}
