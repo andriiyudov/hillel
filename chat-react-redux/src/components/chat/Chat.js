@@ -1,20 +1,21 @@
-import React, {useContext, useState} from 'react';
+import React, {useState} from 'react';
 import {useParams} from 'react-router-dom';
+import {useSelector, useDispatch} from 'react-redux';
 
 import {ENTER_KEY_CODE} from './constants';
 import {getRandomMessage} from './utils/getRandomMessage';
 import Message from './message/Message';
 import Header from '../header/Header';
-import {MessagesContext, ContactsContext} from '../App';
+import {addMessage, deleteMessage as deleteMessageAction} from '../../store/actions/messagesActions';
 import './Chat.css';
 
 
 const Chat = () => {
     const [textareaText, setTextareaText] = useState('');
 
+    const dispatch = useDispatch();
     const {conversationId} = useParams();
-    const {messagesObj, setMessagesObj} = useContext(MessagesContext);
-    const {contacts} = useContext(ContactsContext);
+    const {contacts, messagesObj} = useSelector(state => state);
 
     const messages = messagesObj[conversationId] || [];
     const contact = contacts.find(({id}) => id === conversationId);
@@ -31,13 +32,7 @@ const Chat = () => {
 
     const onApply = () => {
         if (textareaText.trim()) {
-            setMessagesObj(prevState => ({
-                ...prevState,
-                [conversationId]: [
-                    ...messages,
-                    {id: crypto.randomUUID(), text: textareaText, isCurrentUser: true}
-                ]
-            }));
+            dispatch(addMessage(textareaText, true, conversationId));
             onMessageReply();
             setTextareaText('');
         }
@@ -45,21 +40,12 @@ const Chat = () => {
 
     const onMessageReply = () => {
         setTimeout(() => (
-            setMessagesObj(prevState => ({
-                ...prevState,
-                [conversationId]: [
-                    ...(prevState[conversationId] || []),
-                    {id: crypto.randomUUID(), text: getRandomMessage().text, isCurrentUser: false}
-                ]
-            }))
+            dispatch(addMessage(getRandomMessage().text, false, conversationId))
         ), 1000);
     }
 
     const deleteMessage = id => {
-        setMessagesObj(prevState => ({
-            ...prevState,
-            [conversationId]: messages.filter(message => message.id !== id)
-        }));
+        dispatch(deleteMessageAction(id, conversationId))
     }
 
     return (

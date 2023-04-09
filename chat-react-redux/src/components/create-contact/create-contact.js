@@ -1,15 +1,15 @@
-import {useState, useContext} from 'react';
+import {useState} from 'react';
+import {useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import Header from '../header/Header';
-import {ContactsContext} from '../App';
+import {addContact} from '../../store/actions/contactsActions';
 
 const DEFAULT_FORM_VALUE = {name: '', avatarUrl: ''};
 
 export const CreateContact = () => {
     const [form, setForm] = useState(DEFAULT_FORM_VALUE);
     const navigation = useNavigate();
-
-    const {setContacts} = useContext(ContactsContext);
+    const dispatch = useDispatch();
 
     const onFormChange = ({target: {value, name}}) => {
         setForm({...form, [name]: value});
@@ -17,10 +17,7 @@ export const CreateContact = () => {
 
     const saveContact = () => {
         if (Object.values(form).some(value => !!value)) {
-            setContacts(prevState => ([
-                ...prevState,
-                {...form, id: crypto.randomUUID(), avatarUrl: form.avatarUrl || undefined}
-            ]))
+            dispatch(addContact(form));
             navigation('/');
         }
     }

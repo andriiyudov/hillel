@@ -3,16 +3,14 @@ import Header from '../header/Header';
 import {Contact} from './contact/contact';
 
 import './conversations.css';
-import {useContext} from 'react';
-import {ContactsContext, MessagesContext} from '../App';
+import {useSelector} from 'react-redux';
 
 const getLastMessage = messages => (
-    messages ? messages[messages.length - 1].text : messages
+    messages ? messages[messages.length - 1] : messages
 )
 
 export const Conversations = () => {
-    const {contacts} = useContext(ContactsContext);
-    const {messagesObj} = useContext(MessagesContext);
+    const {contacts, messagesObj} = useSelector(state => state);
 
     const navigation = useNavigate();
 

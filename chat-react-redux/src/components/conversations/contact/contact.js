@@ -10,6 +10,8 @@ export const Contact = ({id, name, avatarUrl, lastMessage}) => {
         navigate(`/conversations/${id}`);
     }
 
+    const {text, isCurrentUser} = lastMessage;
+
     return (
         <div className="contact" onClick={onMessageClick}>
             <div className="contact__avatar">
@@ -17,7 +19,10 @@ export const Contact = ({id, name, avatarUrl, lastMessage}) => {
             </div>
             <div className="contact__message-container">
                 <div>{name}</div>
-                <div className="contact__message">{lastMessage}</div>
+                <div className="contact__message">
+                    {isCurrentUser ? 'You: ' : 'Contact: '}
+                    {text}
+                </div>
             </div>
         </div>
     );
