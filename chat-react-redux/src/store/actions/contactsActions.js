@@ -1,9 +1,8 @@
-export const ADD_CONTACT = 'ADD_CONTACT';
-export const GET_CONTACTS_LOADING = 'GET_CONTACTS_LOADING';
-export const GET_CONTACTS_SUCCESS = 'GET_CONTACTS_SUCCESS';
-export const GET_CONTACTS_FAILURE = 'GET_CONTACTS_FAILURE';
+import {createAction} from '@reduxjs/toolkit'
 
-export const addContact = contact => ({type: ADD_CONTACT, payload: contact})
-export const setContacts = contacts => ({type: GET_CONTACTS_SUCCESS, payload: contacts})
+export const addContact = createAction('ADD_CONTACT');
 
+export const setContactsLoading = createAction('GET_CONTACTS_LOADING');
+export const setContactsSuccess = createAction('GET_CONTACTS_SUCCESS');
+export const setContactsFailure = createAction('GET_CONTACTS_FAILURE');
 

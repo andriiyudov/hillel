@@ -1,61 +1,49 @@
-import {ADD_MESSAGE, DELETE_MESSAGE, GET_ALL_MESSAGES_FAILURE, GET_ALL_MESSAGES_LOADING, GET_ALL_MESSAGES_SUCCESS} from '../actions/messagesActions';
+import {createSlice} from '@reduxjs/toolkit'
 
 const INITIAL_STATE = {
     messagesObj: {},
     error: false,
     loading: false,
 };
-export const messagesReducer = (state = INITIAL_STATE, action) => {
-    switch (action.type) {
-        case ADD_MESSAGE: {
+
+const messagesSlice = createSlice({
+    name: 'messagesObj',
+    initialState: INITIAL_STATE,
+    reducers: {
+        addMessage: (state, action) => {
             const {conversationId, message} = action.payload;
             const prevMessages = state.messagesObj[conversationId] || [];
 
-            return {
-                ...state,
-                messagesObj: {
-                    ...state.messagesObj,
-                    [conversationId]: [
-                        ...prevMessages,
-                        {id: crypto.randomUUID(), ...message}
-                    ]
-                }
-            };
-        }
-
-        case DELETE_MESSAGE: {
+            state.messagesObj[conversationId] = [...prevMessages, {id: crypto.randomUUID(), ...message}];
+        },
+        deleteMessage: (state, action) => {
             const {conversationId, id} = action.payload;
             const prevMessages = state.messagesObj[conversationId] || [];
-            const newMessages = prevMessages.filter(message => message.id !== id);
 
-            return {
-                ...state,
-                messagesObj: {
-                    ...prevMessages,
-                    [conversationId]: newMessages,
-                }
-            };
+            state.messagesObj = prevMessages.filter(message => message.id !== id);
+        },
+        getAllMessagesLoading: state => {
+            state.loading = true;
+        },
+        getAllMessagesSuccess: (state, action) => {
+            state.loading = false;
+            state.messagesObj = action.payload;
+        },
+        getAllMessagesFailure: (state, action) => {
+            state.loading = false;
+            state.error = action.payload;
         }
-
-        case GET_ALL_MESSAGES_LOADING:
-            return {
-                ...state,
-                loading: true,
-            };
-
-        case GET_ALL_MESSAGES_SUCCESS:
-            return {
-                ...state,
-                messagesObj: action.payload,
-            };
-
-        case GET_ALL_MESSAGES_FAILURE:
-            return {
-                ...state,
-                error: action.payload
-            };
-
-        default:
-            return state;
     }
-}
+})
+
+const {reducer, actions} = messagesSlice;
+
+export {reducer as messagesReducer};
+
+export const {
+    addMessage,
+    deleteMessage,
+    getAllMessagesLoading,
+    getAllMessagesSuccess,
+    getAllMessagesFailure,
+} = actions;

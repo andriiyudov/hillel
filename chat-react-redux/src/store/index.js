@@ -1,7 +1,8 @@
-import {applyMiddleware, combineReducers, createStore} from 'redux';
+import {combineReducers} from 'redux';
+import { configureStore } from '@reduxjs/toolkit'
+
 import {contactsReducer} from './reducers/contactsReducer';
 import {messagesReducer} from './reducers/messagesReducer';
-import {composeWithDevTools} from 'redux-devtools-extension';
 import {thunk} from './middleware/redux-thunk';
 
 const reducers = combineReducers({
@@ -9,6 +10,12 @@ const reducers = combineReducers({
     messagesObj: messagesReducer,
 });
 
-export const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)));
 
-
+export const store = configureStore({
+    reducer: reducers,
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware().concat(thunk),
+    devTools: {
+        name: 'chat-react-redux'
+    }
+})

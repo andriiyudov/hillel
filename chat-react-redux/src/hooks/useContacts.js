@@ -1,14 +1,14 @@
 import {useCallback} from 'react';
 import axios from 'axios';
 import {URL} from '../components/constants';
-import {addContact, GET_CONTACTS_FAILURE, GET_CONTACTS_LOADING, setContacts} from '../store/actions/contactsActions';
+import {addContact, setContactsSuccess, setContactsFailure, setContactsLoading} from '../store/actions/contactsActions';
 
 export const useContacts = () => {
     const getContacts = useCallback(() => dispatch => {
-        dispatch({type: GET_CONTACTS_LOADING});
+        dispatch(setContactsFailure());
         axios.get(`${URL}/contacts`)
-            .then(res => dispatch(setContacts(res.data)))
-            .catch(error => dispatch({type: GET_CONTACTS_FAILURE, payload: error}));
+            .then(res => dispatch(setContactsSuccess(res.data)))
+            .catch(error => dispatch(setContactsLoading(error)));
     }, []);
 
     const saveContact = useCallback(contact => dispatch => {
