@@ -19,10 +19,12 @@ export const Contact = ({id, name, avatarUrl, lastMessage}) => {
             </div>
             <div className="contact__message-container">
                 <div>{name}</div>
-                <div className="contact__message">
-                    {isCurrentUser ? 'You: ' : 'Contact: '}
-                    {text}
-                </div>
+                {text ? (
+                    <div className="contact__message">
+                        {isCurrentUser ? 'You: ' : 'Contact: '}
+                        {text}
+                    </div>
+                ) : <div className="contact__message">No messages yet</div>}
             </div>
         </div>
     );

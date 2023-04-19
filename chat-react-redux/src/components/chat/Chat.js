@@ -6,16 +6,20 @@ import {ENTER_KEY_CODE} from './constants';
 import {getRandomMessage} from './utils/getRandomMessage';
 import Message from './message/Message';
 import Header from '../header/Header';
-import {addMessage, deleteMessage as deleteMessageAction} from '../../store/actions/messagesActions';
+import {useMessages} from '../../hooks/useMessages';
 import './Chat.css';
 
 
 const Chat = () => {
     const [textareaText, setTextareaText] = useState('');
 
+    const {saveMessage, deleteMessage: deleteMessageAction} = useMessages();
     const dispatch = useDispatch();
     const {conversationId} = useParams();
-    const {contacts, messagesObj} = useSelector(state => state);
+    const {contacts, messagesObj} = useSelector(state => ({
+        contacts: state.contacts.contacts,
+        messagesObj: state.messagesObj.messagesObj,
+    }));
 
     const messages = messagesObj[conversationId] || [];
     const contact = contacts.find(({id}) => id === conversationId);
@@ -32,7 +36,7 @@ const Chat = () => {
 
     const onApply = () => {
         if (textareaText.trim()) {
-            dispatch(addMessage(textareaText, true, conversationId));
+            dispatch(saveMessage({text: textareaText, isCurrentUser: true}, conversationId));
             onMessageReply();
             setTextareaText('');
         }
@@ -40,7 +44,7 @@ const Chat = () => {
 
     const onMessageReply = () => {
         setTimeout(() => (
-            dispatch(addMessage(getRandomMessage().text, false, conversationId))
+            dispatch(saveMessage({text: getRandomMessage().text, isCurrentUser: false}, conversationId))
         ), 1000);
     }
 

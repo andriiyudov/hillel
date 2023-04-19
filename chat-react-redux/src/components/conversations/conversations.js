@@ -1,16 +1,19 @@
+import {useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import Header from '../header/Header';
 import {Contact} from './contact/contact';
 
 import './conversations.css';
-import {useSelector} from 'react-redux';
 
 const getLastMessage = messages => (
     messages ? messages[messages.length - 1] : messages
 )
 
 export const Conversations = () => {
-    const {contacts, messagesObj} = useSelector(state => state);
+    const {contacts, messagesObj} = useSelector(state => ({
+        contacts: state.contacts.contacts,
+        messagesObj: state.messagesObj.messagesObj,
+    }));
 
     const navigation = useNavigate();
 
