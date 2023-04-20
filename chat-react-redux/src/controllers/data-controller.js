@@ -1,7 +1,7 @@
 import {useEffect} from 'react';
 import {useDispatch} from 'react-redux';
-import {useContacts} from '../../hooks/useContacts';
-import {useMessages} from '../../hooks/useMessages';
+import {useContacts} from '../hooks/useContacts';
+import {useMessages} from '../hooks/useMessages';
 
 export const DataController = ({children}) => {
     const dispatch = useDispatch();

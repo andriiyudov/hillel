@@ -5,7 +5,7 @@ import {Provider} from 'react-redux';
 import Chat from './chat/Chat';
 import {Conversations} from './conversations/conversations';
 import {CreateContact} from './create-contact/create-contact';
-import {DataController} from './data-controller/data-controller';
+import {DataController} from '../controllers/data-controller';
 import {store} from '../store';
 import './App.css';
 
